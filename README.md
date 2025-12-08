@@ -3,7 +3,7 @@
 ## 194*:
 
     - @Component
-    - @AutoRewrite
+    - @AutoRewrite 
     - using spring boot create.bean to create an instance of a class
 ## 195:
     - Enabling debugger in the logging
