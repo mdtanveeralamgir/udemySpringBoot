@@ -9,6 +9,7 @@ import java.util.List;
 @Component
 public class MyWebController {
 
+    //Field based dependency injection
     @Autowired
     private BusinessService businessService;
 
@@ -20,8 +21,12 @@ public class MyWebController {
 @Component
 class BusinessService {
 
-    @Autowired
     private DataService dataService;
+
+    @Autowired
+    public void setDataService(DataService dataService) {
+        this.dataService = dataService;
+    }
 
     public long CalculateSum() {
         List<Integer> data = dataService.getData();

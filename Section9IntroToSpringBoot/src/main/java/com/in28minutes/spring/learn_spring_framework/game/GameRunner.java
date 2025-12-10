@@ -9,6 +9,7 @@ public class GameRunner {
     @Autowired
     private GamingConsole game;
 
+    //controller based dependencies
     public GameRunner(GamingConsole game) {
         this.game = game;
     }
