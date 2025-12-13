@@ -37,3 +37,6 @@
 ## 17: Rest API Controller GET
     - Set up hello word end point 
 
+## 19: Return JSON
+    - Return bean class as JSON format from controller
+

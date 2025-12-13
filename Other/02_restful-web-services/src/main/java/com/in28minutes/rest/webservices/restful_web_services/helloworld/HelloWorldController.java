@@ -13,4 +13,9 @@ public class HelloWorldController {
     public String heloWrold() {
         return "Hello World";
     }
+
+    @GetMapping(path = "/hello-world-bean")
+    public HelloWorldBean heloWroldBean() {
+        return new HelloWorldBean("Hello World");
+    }
 }
