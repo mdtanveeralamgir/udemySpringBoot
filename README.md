@@ -34,4 +34,6 @@
     - Setter dependency: In Business service using setter for DataService
     - Its recommended to use Constrator-Based so all the dependencies can be available just by creating the obj
 
+## 17: Rest API Controller GET
+    - Set up hello word end point 
 
