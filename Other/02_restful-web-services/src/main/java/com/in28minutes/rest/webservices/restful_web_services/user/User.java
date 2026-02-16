@@ -24,7 +24,19 @@ public class User {
     @JsonProperty("user_name")
     private String name;
     
-    @Past(message = "Time travel not allowed")
+    public List<Post> getPosts() {
+		return Posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		Posts = posts;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	@Past(message = "Time travel not allowed")
     private LocalDate birthDate;
     
     @OneToMany(mappedBy = "user")

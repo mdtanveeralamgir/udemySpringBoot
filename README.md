@@ -103,4 +103,7 @@
 
 ## 52: JpaRepository
 	- using JpaRepository to connect to DB and perform curd operation
+## 55: OneToMany, ManyToOne Relationship
+	- using Java classes to map one to many many to one between post and user
+## 56: retrieve all posts for a user
 	

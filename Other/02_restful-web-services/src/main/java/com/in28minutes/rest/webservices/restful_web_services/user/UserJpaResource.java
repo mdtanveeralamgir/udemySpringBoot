@@ -50,6 +50,18 @@ public class UserJpaResource {
 	public void DeleteUsers(@PathVariable int id) {
 		this.repository.deleteById(id);
 	}
+	
+	@GetMapping(path = "/jpa/users/{id}/posts")
+	public List<Post> RetrievePostsForUser(@PathVariable int id) {
+		Optional<User> user = this.repository.findById(id);
+
+		if (user.isEmpty()) {
+			throw new UserNotFoundException("No user found.");
+		}
+		
+		return user.get().getPosts();
+	}
+
 
 	@PostMapping("/jpa/users")
 	public ResponseEntity<User> CreateUser(@Valid @RequestBody User user) {
