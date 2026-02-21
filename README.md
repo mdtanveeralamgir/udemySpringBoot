@@ -106,4 +106,7 @@
 ## 55: OneToMany, ManyToOne Relationship
 	- using Java classes to map one to many many to one between post and user
 ## 56: retrieve all posts for a user
+
+## 57: Create a new post
+	- create a new post using PostRepository
 	
