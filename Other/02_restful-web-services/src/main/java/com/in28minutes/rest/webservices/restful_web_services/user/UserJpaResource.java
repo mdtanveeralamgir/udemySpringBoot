@@ -20,24 +20,24 @@ import java.util.Optional;
 @RestController
 public class UserJpaResource {
 
-	private UserRepository repository;
+	private UserRepository userRepository;
 	private PostRepository postRepository;
 
 
 	@Autowired
-	public UserJpaResource(UserRepository repository, PostRepository postRepository) {
-		this.repository = repository;
+	public UserJpaResource(UserRepository userRepository, PostRepository postRepository) {
+		this.userRepository = userRepository;
 		this.postRepository = postRepository;
 	}
 
 	@GetMapping(path = "/jpa/users")
 	public List<User> Users() {
-		return this.repository.findAll();
+		return this.userRepository.findAll();
 	}
 
 	@GetMapping(path = "/jpa/users/{id}")
 	public EntityModel<User> Users(@PathVariable int id) {
-		Optional<User> user = this.repository.findById(id);
+		Optional<User> user = this.userRepository.findById(id);
 
 		if (user.isEmpty()) {
 			throw new UserNotFoundException("No user found.");
@@ -52,12 +52,12 @@ public class UserJpaResource {
 
 	@DeleteMapping(path = "/jpa/users/{id}")
 	public void DeleteUsers(@PathVariable int id) {
-		this.repository.deleteById(id);
+		this.userRepository.deleteById(id);
 	}
 	
 	@GetMapping(path = "/jpa/users/{id}/posts")
 	public List<Post> RetrievePostsForUser(@PathVariable int id) {
-		Optional<User> user = this.repository.findById(id);
+		Optional<User> user = this.userRepository.findById(id);
 
 		if (user.isEmpty()) {
 			throw new UserNotFoundException("No user found.");
@@ -69,7 +69,7 @@ public class UserJpaResource {
 
 	@PostMapping("/jpa/users")
 	public ResponseEntity<User> CreateUser(@Valid @RequestBody User user) {
-		User newUser = this.repository.save(user);
+		User newUser = this.userRepository.save(user);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newUser.getId())
 				.toUri();
 		return ResponseEntity.created(location).build();
@@ -77,7 +77,7 @@ public class UserJpaResource {
 	
 	@PostMapping(path = "/jpa/users/{id}/posts")
 	public ResponseEntity<Post> CreatePostForUser(@PathVariable int id, @Valid @RequestBody Post post) {
-		Optional<User> user = this.repository.findById(id);
+		Optional<User> user = this.userRepository.findById(id);
 
 		if (user.isEmpty()) {
 			throw new UserNotFoundException("No user found.");
