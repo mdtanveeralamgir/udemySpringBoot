@@ -109,4 +109,7 @@
 
 ## 57: Create a new post
 	- create a new post using PostRepository
+## 64: Adding basic authentication
+	- Add authentication to all end points
+	- Adding default username and password
 	
