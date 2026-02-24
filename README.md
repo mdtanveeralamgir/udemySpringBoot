@@ -112,4 +112,8 @@
 ## 64: Adding basic authentication
 	- Add authentication to all end points
 	- Adding default username and password
+## 65: Authenticate all req, enable post put
+	- Make sure to authenticate all request
+	- pop up to put credentials
+	- enable post and put authentication
 	
